@@ -1,0 +1,204 @@
+  
+.mapmodule-div {
+ 
+    width: 50%;
+    margin-bottom: 0rem;
+    display: block;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 20vh;
+    background-color:  #f1f1f3;
+  
+    
+  }
+   
+  
+  .mapmodule-label {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    display: block;
+    color: #2134ad;
+  
+    font-family: "Material Icons";
+    margin-right: 5px;
+  }
+  
+  
+  .mapmodule-h1 {
+    display: flex;
+    background-color: #eaeeea;
+  text-align: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: 700;
+    color: #2134ad;
+    text-align: center;
+  }
+
+  .mapmodule-h2 {
+    display: flex;
+    background-color: #eaeeea;
+  
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #080808;
+    text-align: center;
+  }
+ 
+  
+  .mapmodule-h1::before {
+    content: "\f007";
+    font-family: "Font Awesome 5 Free";
+    margin-right: 10px;
+  }
+  
+  .mapmodule-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1100px;
+    padding: 3rem;
+    border-radius: 5px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin-top: 20px;
+    margin-bottom: 0px;
+  }
+  
+   .mapmodule-div2 {
+  
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+  
+   .mapmodule-label-2 {
+    display:inline-block;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 8px;
+  }
+  .mapmodule-input {
+    border: 1px solid #090909;
+    border-radius: 5px;
+    padding: 0.75rem;
+    font-size: 0.6rem;
+    font-weight: 400;
+    background-color: #c6c2c2;
+    color: #0e0d0d;
+    transition: all 0.5s ease-in-out;
+    border-bottom: 1px solid #ccc;
+    width: 70%;
+    margin-bottom: 2rem;
+  }
+  
+  .mapmodule-select {
+    border: none;
+    border-radius: 5px;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    background-color: #f5f5f5;
+    color: #1e1e1e;
+    transition: all 0.5s ease-in-out;
+    width: 50%;}
+  
+  .mapmodule-table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #070707;
+
+  }
+  
+  .mapmodule-th,
+  .mapmodule-td {
+    padding: 8px;
+    text-align: left;
+    vertical-align: middle;
+    border: 1px solid #090909;
+    
+  }
+  
+  .mapmodule-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    block-size: 10%;
+    border: 1px solid #070707;
+
+  }
+  .mapmodule-table td {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    block-size: 5%;
+    border: 1px solid #070707;
+
+  }
+  
+  .mapmodule-tr:hover {
+    background-color: #ffffff;
+  }
+  
+  .mapmodule-input[type="text"],
+
+  
+  .mapmodule-button {
+    border: 1px solid #070707;
+      width: 50%;
+      height: 50px;
+      background-color:#f3f4f6;
+      color: rgb(15, 15, 15);
+      font-size: 1.2rem;
+      font-weight: 500;
+      
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.5s ease-in-out;
+  }
+
+  .mapmodule-button-submit {
+    border: 1px solid #070707;
+      width: 20%;
+      height: 50px;
+      background-color:#4CAF50;
+      color: rgb(15, 15, 15);
+      font-size: 1.2rem;
+      font-weight: 500;
+      
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.5s ease-in-out;
+      margin: auto;
+  display: block;
+  }
+  
+  .mapmodule-table button:hover {
+    background-color: #acb5ee;
+  
+  }
+  
+  .mapmodule-table button:active {
+    background-color: #e7e7e7;
+    color: #000;
+  }
+
+  .mapmodule-submit button:hover {
+    background-color: #acb5ee;
+  
+  }
+  
+  .mapmodule-submit button:active {
+    background-color: #e7e7e7;
+    color: #000;
+  }

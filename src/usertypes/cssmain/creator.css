@@ -1,0 +1,157 @@
+@import url("https://use.fontawesome.com/releases/v5.15.2/css/all.css");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+
+.creator {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.creator-sidebar {
+  flex: 0 0 200px;
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+
+.creator-sidebar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.creator-sidebar li {
+  margin-bottom: 10px;
+}
+
+.creator-sidebar li div {
+  display: block;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.creator-sidebar li div:hover {
+  background-color: #eee;
+}
+
+.creator-sidebar li.active div {
+  background-color: #0077cc;
+  color: #fff;
+}
+
+.creator-main {
+  flex: 1;
+  padding: 20px;
+}
+.creator-sidebar {
+  position: absolute;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #eee;
+  transition: left 0.2s ease-in-out;
+  z-index: 1;
+}
+
+.creator-sidebar.visible {
+  left: 0;
+}
+
+.creator-sidebar:active {
+  cursor: grab;
+}
+
+/* .creator-sidebar:active ul {
+  pointer-events: none;
+} */
+
+.creator-sidebar:active:after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  cursor: grabbing;
+}
+
+.creator-sidebar:active.visible:after {
+  display: none;
+}
+
+.creator-main {
+  margin-left: 250px;
+}
+.creator-sidebar {
+  position: absolute;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #eee;
+  transition: left 0.2s ease-in-out;
+  z-index: 1;
+}
+
+.creator-sidebar.visible {
+  left: 0;
+}
+
+.creator-sidebar.dragging {
+  pointer-events: none;
+}
+
+.creator-sidebar-toggle {
+  position: absolute;
+  top: 47vh;
+  right: -40px;
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-left: none;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.creator-sidebar-toggle:hover {
+  background-color: #ccc;
+}
+
+.creator-main {
+  margin-left: 250px;
+}
+
+.creator-button{
+  border: none;
+  border-radius: 5px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #4CAF50;
+  color: #ecedec;
+ margin-right: 50px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.creator-button:hover {
+  color: #000000;
+  }
+
+  .creator-button::before {
+    content: "\f007";
+    font-family: "Font Awesome 5 Free";
+    margin-right: 10px;
+  }

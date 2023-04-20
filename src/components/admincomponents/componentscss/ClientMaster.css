@@ -1,0 +1,118 @@
+  
+  .clientmaster-h1{
+    display: block;
+    background-color: #eaeeea;
+  
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: 700;
+    color: #2134ad;
+    text-align: center;
+  }
+  
+  .clientmaster-table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #070707;
+
+  }
+  
+  .clientmaster-th,
+  .clientmaster-td {
+    padding: 8px;
+    text-align: left;
+    vertical-align: middle;
+    border: 1px solid #090909;
+    
+  }
+  
+  .clientmaster-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    block-size: 120%;
+    border: 1px solid #070707;
+
+  }
+  
+  .clientmaster-tr:hover {
+    background-color: #ddd;
+  }
+  
+  .clientmaster-input[type="text"],
+
+  
+
+  
+  .clientmaster-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  
+  .clientmaster-button {
+      width: 50%;
+      height: 40px;
+      background-color:#f3f4f6;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 500;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.5s ease-in-out;
+  }
+  
+  .clientmaster-table button:hover {
+    background-color: #acb5ee;
+  
+  }
+  
+  .clientmaster-table button:active {
+    background-color: #e7e7e7;
+    color: #000;
+  }
+
+
+  .delete{
+ background-color: #c52828;
+     color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+.deleted{
+      background-color: #d87c7c;
+     color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+.edit{
+   background-color: #271fcf;
+     color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    margin-right: 10px; 
+}
+.edited{
+    background-color: #837cff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    margin-right: 10px; 
+}
+
+.adduser{
+   background-color: #0a8f0d;
+     color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    margin-right: 10px; 
+}

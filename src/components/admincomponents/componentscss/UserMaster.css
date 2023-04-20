@@ -1,0 +1,122 @@
+
+
+  .usermaster-h1 {
+    display: block;
+    background-color: #eaeeea;
+  
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: 700;
+    color: #2134ad;
+    text-align: center;
+  }
+  
+  .usermaster-h1 i {
+    margin-right: 10px;
+    font-size: 36px;
+  }
+  
+  .usermaster-table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #070707;
+
+  }
+  
+  .usermaster-th,
+  .usermaster-tr,
+  .usermaster-td {
+    padding: 8px;
+    text-align: left;
+    vertical-align: middle;
+    border: 1px solid #0b0b0b;
+    background-color: whitesmoke;
+  }
+  
+  .usermaster-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    block-size: 120%;
+  }
+  
+  .usermaster-tr:hover {
+    background-color: #ddd;
+  }
+  
+  .usermaster-input[type="text"],
+
+  
+
+    
+  .usermaster-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  
+  .usermaster-button {
+    border: 1px solid #0b0b0b;
+
+      width: 40%;
+      height: 20px;
+      background-color:#f3f4f6;
+      color: rgb(12, 12, 12);
+      font-size: 0.8rem;
+      font-weight: 500;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.5s ease-in-out;
+  }
+  
+  .usermaster-table button:hover {
+    background-color: #acb5ee;
+  
+  }
+  
+  .usermaster-table button:active {
+    background-color: #e7e7e7;
+    color: #000;
+  }
+.delete{
+ background-color: #c52828;
+     color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+.deleted{
+      background-color: #d87c7c;
+     color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+.edit{
+   background-color: #271fcf;
+     color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    margin-right: 10px; 
+}
+.edited{
+    background-color: #837cff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    margin-right: 10px; 
+}
+
+.adduser{
+   background-color: #0a8f0d;
+     color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    margin-right: 10px; 
+}
