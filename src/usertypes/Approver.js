@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../components/admincomponents/componentscss/FormList.css";
+// import "../components/admincomponents/componentscss/FormList.css";
 const reportData = [
 
 ];

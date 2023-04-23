@@ -3,16 +3,16 @@ import { NavLink } from 'react-router-dom';
 
 import './cssmain/admin.css'
 
-import UserCreation from '../components/admincomponents/UserCreation';
-import ClientDBCreate from '../components/admincomponents/ClientDBCreate';
-import ClientMaster from '../components/admincomponents/ClientMaster';
-import UserMaster from '../components/admincomponents/UserMaster';
-import SystemCreate from '../components/admincomponents/SystemCreate';
-import SystemMaster from '../components/admincomponents/SystemMaster';
-import ManufacturerMaster from '../components/admincomponents/ManufacturerMaster';
-import ManufacturerCreate from '../components/admincomponents/ManufacturerCreate';
-import MapModule from '../components/admincomponents/MapModule';
-import LoginPage from '../../src/LoginPage';
+// import UserCreation from '../components/admincomponents/UserCreation';
+// import ClientDBCreate from '../components/admincomponents/ClientDBCreate';
+// import ClientMaster from '../components/admincomponents/ClientMaster';
+// import UserMaster from '../components/admincomponents/UserMaster';
+// import SystemCreate from '../components/admincomponents/SystemCreate';
+// import SystemMaster from '../components/admincomponents/SystemMaster';
+// import ManufacturerMaster from '../components/admincomponents/ManufacturerMaster';
+// import ManufacturerCreate from '../components/admincomponents/ManufacturerCreate';
+// import MapModule from '../components/admincomponents/MapModule';
+// import LoginPage from '../../src/LoginPage';
 
 function Admin() {
    
@@ -40,32 +40,32 @@ function Admin() {
       console.log(link,selected);
     };
   
-    const renderComponent = () => {
-      switch(selected) {
-        case 'client-master':
-          return <ClientMaster />;
-        case 'user-master':
-          return <UserMaster />;
-        case 'system-master':
-          return <SystemMaster />;
-        case 'manufacturer-master':
-          return <ManufacturerMaster />;
-        case 'map-module':
-          return <MapModule />;
-          case'logout':
-          return (
-            <NavLink to="./login">
-              <button>logout</button>
-              </NavLink>
-          );
-        default:
-          return <ClientDBCreate />;
-      }
-    };
+    // const renderComponent = () => {
+    //   switch(selected) {
+    //     case 'client-master':
+    //       return <ClientMaster />;
+    //     case 'user-master':
+    //       return <UserMaster />;
+    //     case 'system-master':
+    //       return <SystemMaster />;
+    //     case 'manufacturer-master':
+    //       return <ManufacturerMaster />;
+    //     case 'map-module':
+    //       return <MapModule />;
+    //       case'logout':
+    //       return (
+    //         <NavLink to="./login">
+    //           <button>logout</button>
+    //           </NavLink>
+    //       );
+    //     default:
+    //       return <ClientDBCreate />;
+    //   }
+    // };
   
     return (
       <div className="admin">
-              <div
+              {/* <div
         className={`admin-sidebar${isSidebarVisible ? " visible" : ""}${
           isDragging ? " dragging" : ""
         }`}
@@ -93,21 +93,18 @@ function Admin() {
             <li className={selected === 'map-module' ? 'active' : ''}>
               <div onClick={() => handleClick('map-module')}>Report Headings</div>
             </li>
-            {/* <li className={selected === 'logout' ? 'active' : ''}> */}
-            {/* <div onClick={() => handleClick('logout')}> */}
             <li>
               <NavLink to ="/login">
               <button className= "admin-button">Logout</button>
               </NavLink>
-              {/* </div> */}
-
-              </li>
+            </li>
           </ul>
         </div>
         <div className="admin-main">
          
           {renderComponent()}
-        </div>
+        </div> */}
+        hii
       </div>
     );
   }

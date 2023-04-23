@@ -1,0 +1,57 @@
+.profile-container {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}
+
+.profile-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dropdown {
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  position: absolute;
+  right: 0;
+  top: 60px;
+  width: 200px;
+  overflow: auto;
+  z-index: 1;
+  transition: all 0.3s ease-in-out;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.dropdown.show {
+  max-height: 300px;
+}
+
+.dropdown-item {
+  padding: 12px 16px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.dropdown-item:hover {
+  background-color: #49b8ec;
+}
+.dropdown-item2{
+  text-align: center;
+ 
+  margin:auto;
+   margin-bottom: 2vh;
+  padding:10px;
+  width:6vw;
+  border-radius: 10px;
+  background-color: rgb(226, 100, 100);
+  cursor: pointer;
+
+}

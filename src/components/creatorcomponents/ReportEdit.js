@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { fetchGetApi, fetchPostApi } from "../api/singlecall";
-import ButtonWithModal from '../Testing';
-import Bodytable from '../BodyDisplay';
-import Modal2 from '../Testing2';
+import { fetchGetApi, fetchPostApi } from "../../api/singlecall";
+import ButtonWithModal from './ButtonWithModal';
+import Bodytable from './BodyDisplay';
+import Modal2 from './Modal2';
 import { useLocation } from "react-router-dom";
-import "../components/admincomponents/componentscss/FormCreate.css";
-import "../components/admincomponents/componentscss/ThreeButton.css";
+import "../../design.css/FormCreate.css";
+import "../../design.css/ThreeButton.css";
 
 
 function ViewBoard() {
@@ -36,7 +36,7 @@ function ViewBoard() {
   const [enddate, setEndDate] = useState("");
   const [nextversion, setversion] = useState("");
   const [list, setList] = useState([]);
-  const [list2,setList2]=useState([]);
+  const [list2, setList2] = useState([]);
 
   const [formValues, setFormValues] = useState({
     userid: "ABS-896645467/Creator",
@@ -479,7 +479,7 @@ function ViewBoard() {
         );
       }));
   };
-  
+
   const mergearrayx = (A, B) => {
     let merged = [];
     merged.push(B[0])
@@ -500,18 +500,18 @@ function ViewBoard() {
 
   const shiftLeft = (headi2, list, json, index) => {
     if (index === 0) {
-      return ;
+      return;
     } else {
       const temp1 = headi2;
-      const t= temp1[index - 1]; 
-      temp1[index-1]=temp1[index];
-      temp1[index]=t;
+      const t = temp1[index - 1];
+      temp1[index - 1] = temp1[index];
+      temp1[index] = t;
 
       const temp2 = list;
       const tt = temp2[index - 1];
       temp2[index - 1] = temp2[index];
       temp2[index] = tt;
-     
+
 
       // const result2 = mergearrayx(result, headi2);
       setList2([...temp2]);

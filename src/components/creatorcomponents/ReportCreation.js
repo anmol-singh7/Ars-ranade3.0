@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { fetchGetApi, fetchPostApi,updatetables } from "../api/singlecall";
-import ButtonWithModal from '../Testing';
-// import ButtonWithLinks from './Button';
-import Modal2 from '../Testing2';
-import Bodytable from '../BodyDisplay';
+import { fetchGetApi, fetchPostApi, updatetables } from "../../api/singlecall";
+import ButtonWithModal from './ButtonWithModal';
+import Modal2 from './Modal2';
+import Bodytable from './BodyDisplay';
 import { useLocation } from "react-router-dom";
-import "../components/admincomponents/componentscss/FormCreate.css";
-import "../components/admincomponents/componentscss/ThreeButton.css";
+import "../../design.css/FormCreate.css";
+import "../../design.css/ThreeButton.css";
 
 
 function ViewBoard(props) {
@@ -18,12 +17,12 @@ function ViewBoard(props) {
     const API5 = URL + "manufacturers";
     const API8 = URL + "sensors";
     const API9 = URL + "attributes";
-    const API10 = URL +"normalpoints";
-    const API11 = URL +"setpoints";
+    const API10 = URL + "normalpoints";
+    const API11 = URL + "setpoints";
     const API12 = URL + "setPointData";
-    const API13 = URL +"updateDescription";
+    const API13 = URL + "updateDescription";
     const API14 = URL + "addfilter";
-  
+
     const [description, setdec] = useState({ clientid: "", systems: "", manufacturer: "", datebegin: "", timebegin: "", dateend: "", timeend: "", databasename: "", table1: "", formtype: "", status1: "", prechandler: "", nexthandler: "", count: "", reportname: "" });
     const [clientname, setclientname] = useState("");
     const [data, FillSetPointData] = useState([[]]);
@@ -40,7 +39,7 @@ function ViewBoard(props) {
     const [enddate, setEndDate] = useState("");
     const [nextversion, setversion] = useState("");
     const [list, setList] = useState([]);
-    const [list2,setList2]=useState([]);
+    const [list2, setList2] = useState([]);
     const [xx, setxx] = useState({ reportid: state.alfa });
     const [formValues, setFormValues] = useState({
         systems: "",
@@ -55,9 +54,9 @@ function ViewBoard(props) {
 
     });
     const [body, setBody] = useState([]);
-    const [System,setSystem]=useState("");
-    const [Manufacturer,setManufacturer]=useState("");
-    const [Reportname,setReportname]=useState("");
+    const [System, setSystem] = useState("");
+    const [Manufacturer, setManufacturer] = useState("");
+    const [Reportname, setReportname] = useState("");
     const [bodydata, setBodyData] = useState([]);
     const [headi2, setHeadi2] = useState([]);
     const [prevheadingjson, setPrevHeadingJson] = useState([]);
@@ -65,7 +64,7 @@ function ViewBoard(props) {
     const [allheading, setAllHeading] = useState([]);
     const [isActive, setIsActive] = useState(false);
     const [filters, setFilters] = useState({});
-    const [filters2,setfilters2]=useState({});
+    const [filters2, setfilters2] = useState({});
 
     const toggleOptions = () => {
         setIsActive(!isActive);
@@ -73,7 +72,7 @@ function ViewBoard(props) {
 
     const generateSelectedArray = (prevaddedjsons, data, list) => {
         // console.log("prev", prevheadingjson, "2-D", data, "allhead", list);
-       
+
         // prevaddedjsons.push(arr);
 
         let actuallyselected = [];
@@ -122,7 +121,7 @@ function ViewBoard(props) {
             const result1 = await fetchPostApi(AP, data2);
             //  console.log("result1",result1)
             setdec(result1.result[0]);
-            
+
             setSystem(result1.result[0].systems);
             setManufacturer(result1.result[0].manufacturer);
             setReportname(result1.result[0].reportname);
@@ -173,7 +172,7 @@ function ViewBoard(props) {
     };
 
     const xat = async (data, list) => {
-        const delta = { reportid: state.alfa};
+        const delta = { reportid: state.alfa };
 
         const response3 = await fetchPostApi(API1, delta);
         const arr = {
@@ -184,15 +183,15 @@ function ViewBoard(props) {
             attribute: "firstelement",
             formtype: "",
         };
-        const ttoo=[]
+        const ttoo = []
         ttoo.push(arr);
-         setPrevHeadingJson([...ttoo]);
-       
+        setPrevHeadingJson([...ttoo]);
+
         // if (callsetTable===false){
         // setTable(ttoo, data, list);
         //     setCallSetTable("tt");
         // }
-        
+
         const pan = response3.body;
         var te = [[]];
         for (var i = 0; i < pan.length - 1; i++) {
@@ -216,10 +215,10 @@ function ViewBoard(props) {
             timeend: formValues.timeend,
             status1: "created",
             reportid: state.alfa,
-            reportname:formValues.reportname,
+            reportname: formValues.reportname,
 
         };
-        console.log("secondfffffffffffffff",temp,formValues);
+        console.log("secondfffffffffffffff", temp, formValues);
         setFormValues(temp);
         setFormValues(temp);
         const trial = Object.entries(response3.attributelist);
@@ -239,8 +238,8 @@ function ViewBoard(props) {
         fetch2(API2, xx, clientname, nextversion, description, formValues);
         fetch4(API4);
         fetch5(API5);
-        xat(data,list);
-       
+        xat(data, list);
+
     }, []);
 
     const handlechange2 = (event) => {
@@ -277,11 +276,11 @@ function ViewBoard(props) {
     const handleChange = (event, bodydata, startdate, enddate, timeBegin, timeEnd) => {
         event.preventDefault();
         const { name, value } = event.target;
-        console.log("ffffffffffffffffffffffffffff",formValues);
+        console.log("ffffffffffffffffffffffffffff", formValues);
         setFormValues({
             ...formValues,
-            [name]: value,     
-          });
+            [name]: value,
+        });
 
         if (name === 'datebegin') {
 
@@ -300,13 +299,13 @@ function ViewBoard(props) {
             setTimeEnd(value);
             setBody(filterbody(bodydata, startdate, enddate, timeBegin, value));
         }
-        else if(name==="reportname"){
+        else if (name === "reportname") {
             setReportname(value);
         }
-        else if(name==="systems"){
+        else if (name === "systems") {
             setSystem(value);
         }
-        else if(name==="manufacturer"){
+        else if (name === "manufacturer") {
             setManufacturer(value)
         }
 
@@ -447,39 +446,39 @@ function ViewBoard(props) {
         }
         return (
             temp.map((row, rowIndex) => {
-                if(rowIndex>0){
-                return (
-                    <tr key={rowIndex}>
-                        {heading.map((col, colIndex) => {
-                            return (
-                                <>
-                                    <td>  {colIndex === 0 ? (
-                                        <input
-                                            type="text"
-                                            value={col.dat[rowIndex]}
-                                            onChange={(e) => handleInputChange(e, rowIndex, colIndex, col.jso)}
-                                        />
-                                    ) :
-                                        <select
-                                            value={showSelect(options, col.dat[rowIndex])}
-                                            onChange={(e) => handleSelectChange(e, rowIndex, colIndex, col.jso)
-                                            }
-                                        >
-                                            <option value="-">{showSelect(options, col.dat[rowIndex])}</option>
-                                            {options.map((cur, index) => (
-                                                <option key={index} value={cur[0]} >
-                                                    {cur[0]}
-                                                </option>
-                                            ))}
-                                        </select>
+                if (rowIndex > 0) {
+                    return (
+                        <tr key={rowIndex}>
+                            {heading.map((col, colIndex) => {
+                                return (
+                                    <>
+                                        <td>  {colIndex === 0 ? (
+                                            <input
+                                                type="text"
+                                                value={col.dat[rowIndex]}
+                                                onChange={(e) => handleInputChange(e, rowIndex, colIndex, col.jso)}
+                                            />
+                                        ) :
+                                            <select
+                                                value={showSelect(options, col.dat[rowIndex])}
+                                                onChange={(e) => handleSelectChange(e, rowIndex, colIndex, col.jso)
+                                                }
+                                            >
+                                                <option value="-">{showSelect(options, col.dat[rowIndex])}</option>
+                                                {options.map((cur, index) => (
+                                                    <option key={index} value={cur[0]} >
+                                                        {cur[0]}
+                                                    </option>
+                                                ))}
+                                            </select>
 
-                                    }
-                                    </td>
-                                </>)
-                        })}
-                    </tr>
-                )
-                    };
+                                        }
+                                        </td>
+                                    </>)
+                            })}
+                        </tr>
+                    )
+                };
             }));
     };
 
@@ -634,7 +633,7 @@ function ViewBoard(props) {
     };
 
     const Setfilter2 = (filte) => {
-        console.log("flterererfdfeevev",filte)
+        console.log("flterererfdfeevev", filte)
         setfilters2(filte)
     }
 
@@ -656,50 +655,50 @@ function ViewBoard(props) {
         return result;
     }
 
-    const create2DArray=(headings)=> {
-       const array2D = jsonTo2DArray(headings);
-        const setpointarray=[];
+    const create2DArray = (headings) => {
+        const array2D = jsonTo2DArray(headings);
+        const setpointarray = [];
         // Loop through each JSON object in the array
         for (let i = 0; i < headings.length; i++) {
-            if(i>0){
-            setpointarray.push({sensorname:headings[i].jso.sensorname,reportid:state.alfa,order1:i})
+            if (i > 0) {
+                setpointarray.push({ sensorname: headings[i].jso.sensorname, reportid: state.alfa, order1: i })
             }
         }
 
-       return { arr:{reportid: state.alfa,setdata:array2D}, setpointarray};
+        return { arr: { reportid: state.alfa, setdata: array2D }, setpointarray };
     }
 
-    const normalPoint=(headi2)=>{
-        const normalPoint=[];
-          for(let i=0;i<headi2.length;i++){
-           if(i>0){
-               normalPoint.push({ reportid: state.alfa, sensorname: headi2[i].sensorname, attribute: headi2[i].attribute,order1:i})
-           }
-          }
-          return normalPoint;
+    const normalPoint = (headi2) => {
+        const normalPoint = [];
+        for (let i = 0; i < headi2.length; i++) {
+            if (i > 0) {
+                normalPoint.push({ reportid: state.alfa, sensorname: headi2[i].sensorname, attribute: headi2[i].attribute, order1: i })
+            }
+        }
+        return normalPoint;
     }
 
-    const handlesub=async()=>{
-        const temp={...formValues,systems:System,manufacturer:Manufacturer,reportname:Reportname}
+    const handlesub = async () => {
+        const temp = { ...formValues, systems: System, manufacturer: Manufacturer, reportname: Reportname }
         // console.log("ttpppppppppppppttttttttttttttppppppppp",headi2)
-       
+
         const dd = create2DArray(heading);
-       const t= normalPoint(headi2);
-    //    console.log("ttttttttttt",t,"ddddddddddddddd",dd)
-    // console.log('temptempteeeeeeeeeeeeeeemp',dd.arr.setdata);
-        const e = await fetchPostApi(API14, {reportid: xx.reportid,filter1:filters2})
-      console.log("dddddddddddddddddddd",e);
+        const t = normalPoint(headi2);
+        //    console.log("ttttttttttt",t,"ddddddddddddddd",dd)
+        // console.log('temptempteeeeeeeeeeeeeeemp',dd.arr.setdata);
+        const e = await fetchPostApi(API14, { reportid: xx.reportid, filter1: filters2 })
+        console.log("dddddddddddddddddddd", e);
 
         const a = await updatetables(API13, temp);
         console.log("aaaaaaaaaaaaaaaaa", a);
-      const b=  await fetchPostApi(API10,t);
-      console.log("BBBBBBBBBBBBBBBBBBBB",b)
-      const c=  await fetchPostApi(API11,dd.setpointarray);
-      console.log("cccccccccccccccccc",c)
-      const d= await fetchPostApi(API12,dd.arr);
-       console.log("iiiiiiiiiiiiiii",d);
+        const b = await fetchPostApi(API10, t);
+        console.log("BBBBBBBBBBBBBBBBBBBB", b)
+        const c = await fetchPostApi(API11, dd.setpointarray);
+        console.log("cccccccccccccccccc", c)
+        const d = await fetchPostApi(API12, dd.arr);
+        console.log("iiiiiiiiiiiiiii", d);
         alert('Report Created successfully!');
-    } 
+    }
 
     const filtbody = (bodyy) => {
         console.log(bodyy);
@@ -854,7 +853,7 @@ function ViewBoard(props) {
                 <div style={{ display: "flex" }}>
                     <button className="add-button" onClick={() => setTable(prevheadingjson, data, list)}>Reset</button>
                     {/* <button className="add-button" onClick={() => setTable(prevheadingjson, data, list)}>Reset</button> */}
-                    <ButtonWithModal Data={list} markedData={prevheadingjson}  style={{ zIndex: "3" }} addheading={addheading} />
+                    <ButtonWithModal Data={list} markedData={prevheadingjson} style={{ zIndex: "3" }} addheading={addheading} />
                     {/* <button className="add-button" onClick={()=>setOptionsMin(body,atList,heading,allheading)}>Min</button>
           <button className="add-button" onClick={() => setOptionsMax(body, atList, heading, allheading)}>Max</button>
           */}
@@ -924,15 +923,15 @@ function ViewBoard(props) {
                                 </th>
                             ))}
                             <Modal2 initialData={list2} markedData={headi2} dropdowndata={atList} addheadi2={addheadi2} style={{ zIndex: "3" }} />
-                        </tr>        
+                        </tr>
                     </tbody>
 
                     {atList.length > 0 ? <Bodytable headi2={headi2} bodydata={bodydata} body={body} atList={atList} filt={filters} minDateAndTime={description.datebegin + 'T' + description.timebegin + ':00.000Z'} maxDateAndTime={description.dateend + 'T' + description.timeend + ':59.000Z'} visib={"EDIT"} Setfilter2={Setfilter2} /> : ""}
 
-              </table>
-             
+                </table>
+
             </div>
-            <button className="add-button"  onClick={()=>handlesub(data,filters)}>Final</button>
+            <button className="add-button" onClick={() => handlesub(data, filters)}>Final</button>
         </>
     );
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../src/components/admincomponents/componentscss/modal.css"
+import "../../design.css/modal.css";
 
 const Modal2 = ({ initialData, markedData, dropdowndata, addheadi2 }) => {
   

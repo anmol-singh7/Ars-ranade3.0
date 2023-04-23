@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react';
-import "./components/admincomponents/componentscss/modal.css"
+import "../../design.css/modal.css";
 // import { offRoute } from 'browser-router';
 
 const ButtonWithModal = ({ Data, markedData, addheading }) => {

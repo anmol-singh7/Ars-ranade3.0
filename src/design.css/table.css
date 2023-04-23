@@ -1,8 +1,12 @@
+  .tablecontainer{
+    margin: 5vw 5vw 0px 0vw;
+  }
+  
   
   .systemmaster-h1{
-    display: block;
+    /* display: block; */
     background-color: #eaeeea;
-  
+   border: 2px solid #0b0b0b;
     align-items: center;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -15,23 +19,25 @@
   .systemmaster-table {
     border-collapse: collapse;
     width: 100%;
-    border: 1px solid #090909;
+    border: 2px solid #090909;
+     border: 2px solid #0b0b0b;
 
   }
   
-
   .systemmaster-th,
   .systemmaster-td {
+     border: 2px solid #0b0b0b;
     padding: 8px;
     text-align: left;
     vertical-align: middle;
-    border: 1px solid #0c0c0c;
+    border: 2px solid #0c0c0c;
   }
   
   .systemmaster-table th {
+     border: 2px solid #0b0b0b;
     background-color: #f2f2f2;
     font-weight: bold;
-    block-size: 120%;
+    /* block-size: 120%; */
   }
   
   .systemmaster-tr:hover {
@@ -48,7 +54,7 @@
 
   
   .systemmaster-button {
-    border: 1px solid #0b0b0b;
+    border: 2px solid #0b0b0b;
 
       width: 50%;
       height: 20px;
@@ -70,45 +76,3 @@
     background-color: #e7e7e7;
     color: #000;
   }
-
-  .delete{
- background-color: #c52828;
-     color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    margin-right: 10px;
-}
-.deleted{
-      background-color: #d87c7c;
-     color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    margin-right: 10px;
-}
-.edit{
-   background-color: #271fcf;
-     color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    margin-right: 10px; 
-}
-.edited{
-    background-color: #837cff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    margin-right: 10px; 
-}
-
-.adduser{
-   background-color: #0a8f0d;
-     color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    margin-right: 10px; 
-}

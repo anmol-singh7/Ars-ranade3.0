@@ -1,5 +1,5 @@
 import React, {useState ,useEffect } from "react";
-import "../admincomponents/componentscss/FormList.css";
+import "../../design.css/FormList.css";
 import {useNavigate } from "react-router-dom";
 import { fetchGetApi } from "../../api/singlecall";
 

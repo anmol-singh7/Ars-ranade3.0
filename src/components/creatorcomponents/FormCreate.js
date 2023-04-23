@@ -2,7 +2,7 @@ import React, { useMemo, useEffect, useState } from "react";
 import { Card, Form, Input, Label, Select } from 'semantic-ui-react';
 import { useNavigate } from "react-router-dom";
 import {fetchGetApi, fetchPostApi } from "../../api/singlecall";
-import "../admincomponents/componentscss/FormCreate.css";
+import "../../design.css/FormCreate.css";
 
 function FormCreate() {
   const URL=process.env.REACT_APP_URL;

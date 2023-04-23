@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import {fetchPostApi } from "../api/singlecall";
+import {fetchPostApi } from "../../api/singlecall";
 import { useLocation } from "react-router-dom";
-import Bodytable from '../BodyDisplay';
-import "../components/admincomponents/componentscss/FormCreate.css";
-import "../components/admincomponents/componentscss/ThreeButton.css";
+import Bodytable from './BodyDisplay';
+import "../../design.css/FormCreate.css";
+import "../../design.css/ThreeButton.css";
 
 
 function ViewBoard2() {
