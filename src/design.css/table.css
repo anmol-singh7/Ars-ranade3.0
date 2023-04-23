@@ -20,7 +20,7 @@
     border-collapse: collapse;
     width: 100%;
     border: 2px solid #090909;
-     border: 2px solid #0b0b0b;
+     /* border: 2px solid #0b0b0b; */
 
   }
   
@@ -31,12 +31,14 @@
     text-align: left;
     vertical-align: middle;
     border: 2px solid #0c0c0c;
+    text-align: center;
   }
   
   .systemmaster-table th {
      border: 2px solid #0b0b0b;
     background-color: #f2f2f2;
     font-weight: bold;
+    
     /* block-size: 120%; */
   }
   
@@ -76,3 +78,9 @@
     background-color: #e7e7e7;
     color: #000;
   }
+.systemmaster-tbody tr:hover{
+  
+  transform: scale(1.05);
+  background-color: aqua;
+  color:#2134ad
+}

@@ -21,27 +21,69 @@
   padding: 0;
   list-style: none;
   text-align: center;
-  position: fixed;
+  /* position: fixed; */
+}
+.creator-sidebar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
-.admin-sidebar ul li {
-
-  margin: 0.5rem 0;
+.admin-sidebar li {
+  margin-bottom: 10px;
   transition: all 0.5s ease-in-out;
-  
 }
 
-.admin-sidebar ul li a {
+.admin-sidebar li div {
+  /* color: #333;
+  text-decoration: none;
+  font-size: 1.2rem;*/
+ transition: all 0.5s ease-in-out; 
+   display: block;
+  padding: 13px 60px 13px 60px;
+  
+  background-color: #fff;
+  border-radius: 5px;
   color: #333;
   text-decoration: none;
-  font-size: 1.2rem;
-  transition: all 0.5s ease-in-out;
+  /* transition: background-color 0.3s; */
 }
 
-.admin-sidebar ul li a:hover {
+.admin-sidebar li div:hover {
   transform: scale(1.1);
-  color: #007bff;
+  background-color:  #0077cc;
+  color: #eee;
 }
+.admin-sidebar li.active div {
+ background-color: #0077cc;
+  color: #fff;
+}
+
+
+.creator-sidebar li {
+  margin-bottom: 10px;
+}
+
+.creator-sidebar li div {
+  display: block;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.creator-sidebar li div:hover {
+  background-color: #eee;
+}
+
+.creator-sidebar li.active div {
+  background-color: #0077cc;
+  color: #fff;
+}
+
+
 
 .admin-sidebar.visible {
   width: 20vw;
@@ -82,8 +124,8 @@
 }
 
 .admin-sidebar-title{
-  position: fixed;
-  top:25vh;
-  /* margin-top: 200px; */
+  position: relative;
+  /* top:25%; */
+  /* margin-bottom: 200px; */
 
 }

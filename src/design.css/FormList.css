@@ -34,31 +34,31 @@
 
   }
   
-  .formlist-th,
   .formlist-td {
-    padding: 10px;
+    border: 2px solid #0b0b0b;
+    padding: 8px;
     text-align: left;
     vertical-align: middle;
-    border: 1px solid #070707;
+    border: 2px solid #0c0c0c;
+    text-align: center;
   }
   
-  .formlist-table th {
+  /* .formlist-table th {
+    border: 2px solid #0b0b0b;
     background-color: #f2f2f2;
+    font-weight: bold;
+
+  } */
+  /* .formlist-table td {
+    background-color: #ffffff;
     font-weight: bold;
     block-size: 120%;
     border: 1px solid #070707;
 
-  }
-  .formlist-table td {
-    background-color: #f2f2f2;
-    font-weight: bold;
-    block-size: 120%;
-    border: 1px solid #070707;
-
-  }
+  } */
   
   .formlist-tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #ffffff;
   }
   
   .formlist-tr:hover {
@@ -104,6 +104,16 @@
   }
   
   .formlist-table button:active {
-    background-color: #e7e7e7;
+    background-color: #ffffff;
     color: #000;
+  }
+
+  .formlist-th{
+    /* border: 2px solid #0b0b0b; */
+    padding: 8px;
+    text-align: left;
+    vertical-align: middle;
+    /* border: 2px solid #0c0c0c; */
+    border-right: 2px solid #0c0c0c;
+    text-align: center;
   }

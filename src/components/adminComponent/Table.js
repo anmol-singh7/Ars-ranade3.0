@@ -83,9 +83,9 @@ const Table = (props) => {
               className='systemmaster-tr'
               key={index}
             >
-              <td style={{ border: "solid 2px black" }}>{index + 1}</td>
+              <td className='systemmaster-td' style={{ border: "solid 2px black" }}>{index + 1}</td>
               {props.tableHollow.displayFields.map((cell, index) => (
-                <td style={{ border: "solid 2px black" }} key={index}>{field[cell]}</td>
+                <td className='systemmaster-td' style={{ border: "solid 2px black" }} key={index}>{field[cell]}</td>
               ))}
             </tr>
           ))}
@@ -96,7 +96,7 @@ const Table = (props) => {
         <button className={selectedRow ? "delete" : "deleted"} disabled={isButtonDisabled} onClick={() => setIsModalOpen(true)}>Delete</button>
       </div>
       <div style={{ display: "flex", justifyContent: "end" }}>
-        <button className='adduser' onClick={() => handleaddnew(props.tableHollow.addnew)}>Add User</button>
+        <button className='adduser' onClick={() => handleaddnew(props.tableHollow.addnew)}>Add</button>
       </div>
 
       {isModalOpen && (

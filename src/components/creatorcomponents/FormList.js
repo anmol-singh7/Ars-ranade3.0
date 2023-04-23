@@ -81,7 +81,7 @@ const setid2 =(event)=>{
             <table className="formlist-table">
               <thead className="formlist-thead">
                 <tr className="formlist-thead-tr">
-                  <th className="formlist-thead-th">
+                  <th className="formlist-th">
                     <label
                       className="formlist-label"
                       htmlFor="reportTypeSearchTerm"
@@ -95,7 +95,7 @@ const setid2 =(event)=>{
                       onChange={handleReportSearchTermChange}
                     />
                   </th>
-                  <th>
+            <th className="formlist-th">
                     <label
                       className="formlist-label"
                       htmlFor="reportTypeSearchTerm"
@@ -115,7 +115,7 @@ const setid2 =(event)=>{
                       ))}
                     </select>
                   </th>
-                  <th className="formlist-thead-th">
+                  <th className="formlist-th">
                     <label className="formlist-label" htmlFor="dateSearchTerm">
                       Date:
                     </label>
@@ -126,7 +126,7 @@ const setid2 =(event)=>{
                       onChange={handleDateSearchTermChange}
                     />
                   </th>
-                  <th className="formlist-thead-th">
+                  <th className="formlist-th">
                     <label
                       className="formlist-label"
                       htmlFor="statusSearchTerm"
@@ -140,28 +140,29 @@ const setid2 =(event)=>{
                       onChange={handleStatusSearchTermChange}
                     />
                   </th>
+                  <th className="formlist-th"></th>
                 </tr>
 
                 <tr className="formlist-thead-tr">
-                  <th className="formlist-thead-th">Report ID</th>
-                  <th className="formlist-thead-th">Report Type</th>
-                  <th className="formlist-thead-th">Date</th>
-                  <th className="formlist-thead-th">Status</th>
-                  <th className="formlist-thead-th">Edit</th>
-                  <th className="formlist-thead-th">View</th>
+                  <th className="formlist-th">Report ID</th>
+                  <th className="formlist-th">Report Type</th>
+                  <th className="formlist-th">Date</th>
+                  <th className="formlist-th">Status</th>
+                  <th className="formlist-th">View Edit</th>
+                  
                 </tr>
               </thead>
               <tbody className="formlist-tbody">
                 {filteredData.map((report) => (
-                  <tr className="formlist-tbody-tr" key={report.reportid}>
-                    <td className="formlist-tbody-td">{report.reportid}</td>
-                    <td className="formlist-tbody-td">{report.reportname}</td>
-                    <td className="formlist-tbody-td">{report.datebegin}</td>
-                    <td className="formlist-tbody-td">{report.status1}</td>
-                    <td className="formlist-tbody-td">
+                  <tr className="formlist-tr" key={report.reportid}>
+                    <td className="formlist-td">{report.reportid}</td>
+                    <td className="formlist-td">{report.reportname}</td>
+                    <td className="formlist-td">{report.datebegin}</td>
+                    <td className="formlist-td">{report.status1}</td>
+                    <td className="formlist-td">
                       <button value={report.reportid} onClick={(e) => setid(e)}>View</button>
-                    </td>
-                    <td className="formlist-tbody-td">
+                    
+                  
                       <button value={report.reportid} onClick={(e) => setid2(e)}>Edit</button>
                     </td>
                   </tr>

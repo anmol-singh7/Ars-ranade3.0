@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import './cssmain/creator.css'
+import './cssmain/admin.css'
 
 import FormCreate from '../components/creatorcomponents/FormCreate';
 import FormList from '../components/creatorcomponents/FormList';
-
+import ProfileDropdown from '../components/adminComponent/Profile';
 
 function Creator() {
    
@@ -52,16 +53,16 @@ function Creator() {
     };
   
     return (
-      <div className="creator">
+      <div className="admin">
               <div
-        className={`creator-sidebar${isSidebarVisible ? " visible" : ""}${
+        className={`admin-sidebar${isSidebarVisible ? " visible" : ""}${
           isDragging ? " dragging" : ""
         }`}
         draggable="true"
         onDragStart={handleDragStart}
         onDragEnd={handleDragEnd}
       >
-        <button className="creator-sidebar-toggle" onClick={handleToggleSidebar}>
+        <button className="admin-sidebar-toggle" onClick={handleToggleSidebar}>
           {isSidebarVisible ? "<<" : ">>"}
         </button>
         <h1>Creator Profile</h1>
@@ -72,16 +73,12 @@ function Creator() {
             <li className={selected === 'client-db-create' ? 'active' : ''}>
               <div onClick={() => handleClick('client-db-create')}>FormList</div>
             </li>
-            <li>
-              <NavLink to ="/login">
-              <button className= "creator-button">Logout</button>
-              </NavLink>
-              </li>
           </ul>
         </div>
-        <div className="creator-main">
+        <div className="admin-main" style={isSidebarVisible === true ? { marginLeft: "20vw", marginRight: "3vw" } : { marginLeft: "3vw", marginRight: "3vw" }}>
           {renderComponent()}
         </div>
+       <ProfileDropdown/>
       </div>
     );
   }

@@ -40,7 +40,14 @@ const DashBoardPage = () => {
       case 'Reports':
         return <Table tableHollow={tableTypeMap.Reports} />;
       default:
-        return <div>Default Page</div>;
+        return <div style={{
+          backgroundImage:
+            "url('https://previews.123rf.com/images/prakobkit/prakobkit1901/prakobkit190100062/117779220-aerial-view-of-container-cargo-ship-in-sea.jpg')", width: '100vw', height: '100vh'
+        }}>
+
+          {/* <button style={{ position: 'absolute', padding: '8px 20px', border: '1px solid black', borderRadius: '5px', backgroundColor: 'green', color: 'white', right: '1.5vw', top: '2vh' }} onClick={goto}>Login</button> */}
+        </div>
+    ;
     }
   };
 
@@ -53,7 +60,7 @@ const DashBoardPage = () => {
         <h1 className="admin-sidebar-title">Admin Profile</h1>
         <ul className="admin-sidebar-list">
           {Object.keys(tableTypeMap).map((page) => (
-            <li key={page}>
+            <li key={page} className={activePage === page  ? 'active' : ''} >
               <div value={page} onClick={() => setActivePage(page)}>{page}</div>
             </li>
           ))}
@@ -71,7 +78,7 @@ const DashBoardPage = () => {
           </button>
          
         </div>
-        <div className="admin-page" style={{ marginLeft: isSidebarVisible ? '2vw' : '5vw' }}>{renderPage(activePage)}</div>
+        <div className="admin-page" style={activePage!==""?{ marginLeft: isSidebarVisible ? '2vw' : '5vw' }:{}}>{renderPage(activePage)}</div>
       </div  >
       {/* <div style={{ position:'fixed',right:'10px' }}>hii</div> */}
 
