@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { fetchPostApi } from '../../api/singlecall';
 import { inputdata } from "../people/tabletypes";
-import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "../../design.css/user.css";
@@ -52,89 +51,92 @@ const AddEmploy = () => {
             setError(null);
         }
         const { name, value } = e.target;
-        console.log(name, value, values);
         setValues({ ...values, [name]: value });
     };
    
+//  in this changeHandlerPassword function now i only implement th functionality to display messages 
+//  this approach is very dumb it implement it just to chech how it look i will make new code which 
+//  just of 35 Lines
+
     const changeHandlerPassword = (e) => {
-        console.log("wwwwwwwwwwwwwwwww",state)
+       
         const str=e.target.value;
         if(str!==""){
             if(str.length<8){
             if (/[A-Z]/.test(str) && !/[a-z]/.test(str) && !/[-+_!@#$%^&*., ?]/.test(str) && !/[0-9]/.test(str)) {
                  setError2(
                     <div>
-                         <span style={{ color: 'lightgreen' }}> must contain atlest one uppercase letter</span><br></br>
-                         <span style={{ color: 'red' }}> must contain atlest one lowercase letter</span><br></br>
-                         <span style={{ color: 'red' }}> must contain atlest one symbol</span><br></br>
-                         <span style={{ color: 'red' }}> must contain atlest one numeric letter</span><br></br>
-                         <span style={{ color: 'red' }}> must have 8 character</span>
+                         <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one uppercase letter</span><br></br>
+                         <span style={{ color: 'red' }}> Passowrd must contain atlest one lowercase letter</span><br></br>
+                         <span style={{ color: 'red' }}> Passowrd must contain atlest one symbol</span><br></br>
+                         <span style={{ color: 'red' }}> Passowrd must contain atlest one numeric letter</span><br></br>
+                         <span style={{ color: 'red' }}> Passowrd must have 8 character</span>
                     </div>
                  );
               }
            else if (!/[A-Z]/.test(str) && /[a-z]/.test(str)  && !/[0-9]/.test(str) && !/[-+_!@#$%^&*., ?]/.test(str)) {
                 setError2(
                     <div>
-                        <span style={{ color: 'red' }}> must contain atlest one uppercase letter</span><br></br>
-                        <span style={{ color: 'lightgreen' }}> must contain atlest one lowercase letter</span><br></br>
-                        <span style={{ color: 'red' }}> must contain atlest one symbol</span><br></br>
-                        <span style={{ color: 'red' }}> must contain atlest one numeric letter</span><br></br>
-                        <span style={{ color: 'red' }}> must have 8 character</span>
+                        <span style={{ color: 'red' }}> Passowrd must contain atlest one uppercase letter</span><br></br>
+                        <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one lowercase letter</span><br></br>
+                        <span style={{ color: 'red' }}> Passowrd must contain atlest one symbol</span><br></br>
+                        <span style={{ color: 'red' }}> Passowrd must contain atlest one numeric letter</span><br></br>
+                        <span style={{ color: 'red' }}> Passowrd must have 8 character</span>
                     </div>
                 );
             }
             else if (!/[A-Z]/.test(str) && !/[a-z]/.test(str) && /[-+_!@#$%^&*., ?]/.test(str) && !/[0-9]/.test(str)) {
               setError2(
                   <div>
-                      <span style={{ color: 'red' }}> must contain atlest one uppercase letter</span><br></br>
-                      <span style={{ color: 'red' }}> must contain atlest one lowercase letter</span><br></br>
-                      <span style={{ color: 'lightgreen' }}> must contain atlest one symbol</span><br></br>
-                      <span style={{ color: 'red' }}> must contain atlest one numeric letter</span><br></br>
-                      <span style={{ color: 'red' }}> must have 8 character</span>
+                      <span style={{ color: 'red' }}> Passowrd must contain atlest one uppercase letter</span><br></br>
+                      <span style={{ color: 'red' }}> Passowrd must contain atlest one lowercase letter</span><br></br>
+                      <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one symbol</span><br></br>
+                      <span style={{ color: 'red' }}> Passowrd must contain atlest one numeric letter</span><br></br>
+                      <span style={{ color: 'red' }}> Passowrd must have 8 character</span>
                   </div>
               );
             }
             else if (!/[A-Z]/.test(str) && !/[a-z]/.test(str) && !/[-+_!@#$%^&*., ?]/.test(str) && /[0-9]/.test(str)) {
                 setError2(
                     <div>
-                        <span style={{ color: 'red' }}> must contain atlest one uppercase letter</span><br></br>
-                        <span style={{ color: 'red' }}> must contain atlest one lowercase letter</span><br></br>
-                        <span style={{ color: 'red' }}> must contain atlest one symbol</span><br></br>
-                        <span style={{ color: 'lightgreen' }}> must contain atlest one numeric letter</span><br></br>
-                        <span style={{ color: 'red' }}> must have 8 character</span>
+                        <span style={{ color: 'red' }}> Passowrd must contain atlest one uppercase letter</span><br></br>
+                        <span style={{ color: 'red' }}> Passowrd must contain atlest one lowercase letter</span><br></br>
+                        <span style={{ color: 'red' }}> Passowrd must contain atlest one symbol</span><br></br>
+                        <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one numeric letter</span><br></br>
+                        <span style={{ color: 'red' }}> Passowrd must have 8 character</span>
                     </div>
                 );
             }
             else if (/[A-Z]/.test(str) && /[a-z]/.test(str) && !/[-+_!@#$%^&*., ?]/.test(str) && !/[0-9]/.test(str)) {
                 setError2(
                     <div>
-                        <span style={{ color: 'lightgreen' }}> must contain atlest one uppercase letter</span><br></br>
-                        <span style={{ color: 'lightgreen' }}> must contain atlest one lowercase letter</span><br></br>
-                        <span style={{ color: 'red' }}> must contain atlest one symbol</span><br></br>
-                        <span style={{ color: 'red' }}> must contain atlest one numeric letter</span><br></br>
-                        <span style={{ color: 'red' }}> must have 8 character</span>
+                        <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one uppercase letter</span><br></br>
+                        <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one lowercase letter</span><br></br>
+                        <span style={{ color: 'red' }}> Passowrd must contain atlest one symbol</span><br></br>
+                        <span style={{ color: 'red' }}> Passowrd must contain atlest one numeric letter</span><br></br>
+                        <span style={{ color: 'red' }}> Passowrd must have 8 character</span>
                     </div>
                 );
             }
             else if (/[A-Z]/.test(str) && !/[a-z]/.test(str) && /[-+_!@#$%^&*., ?]/.test(str) && !/[0-9]/.test(str)) {
                 setError2(
                     <div>
-                        <span style={{ color: 'lightgreen' }}> must contain atlest one uppercase letter</span><br></br>
-                        <span style={{ color: 'red' }}> must contain atlest one lowercase letter</span><br></br>
-                        <span style={{ color: 'lightgreen' }}> must contain atlest one symbol</span><br></br>
-                        <span style={{ color: 'red' }}> must contain atlest one numeric letter</span><br></br>
-                        <span style={{ color: 'red' }}> must have 8 character</span>
+                        <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one uppercase letter</span><br></br>
+                        <span style={{ color: 'red' }}> Passowrd must contain atlest one lowercase letter</span><br></br>
+                        <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one symbol</span><br></br>
+                        <span style={{ color: 'red' }}> Passowrd must contain atlest one numeric letter</span><br></br>
+                        <span style={{ color: 'red' }}> Passowrd must have 8 character</span>
                     </div>
                 );
             }
             else if (/[A-Z]/.test(str) && !/[a-z]/.test(str) && !/[-+_!@#$%^&*., ?]/.test(str) && /[0-9]/.test(str)) {
                 setError2(
                     <div>
-                        <span style={{ color: 'lightgreen' }}> must contain atlest one uppercase letter</span><br></br>
-                        <span style={{ color: 'red' }}> must contain atlest one lowercase letter</span><br></br>
-                        <span style={{ color: 'red' }}> must contain atlest one symbol</span><br></br>
-                        <span style={{ color: 'lightgreen' }}> must contain atlest one numeric letter</span><br></br>
-                        <span style={{ color: 'red' }}> must have 8 character</span>
+                        <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one uppercase letter</span><br></br>
+                        <span style={{ color: 'red' }}> Passowrd must contain atlest one lowercase letter</span><br></br>
+                        <span style={{ color: 'red' }}> Passowrd must contain atlest one symbol</span><br></br>
+                        <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one numeric letter</span><br></br>
+                        <span style={{ color: 'red' }}> Passowrd must have 8 character</span>
                     </div>
                 );
             }
@@ -142,44 +144,44 @@ const AddEmploy = () => {
             else if (/[A-Z]/.test(str) && /[a-z]/.test(str) && /[-+_!@#$%^&*., ?]/.test(str) && !/[0-9]/.test(str)) {
                 setError2(
                     <div>
-                        <span style={{ color: 'lightgreen' }}> must contain atlest one uppercase letter</span><br></br>
-                        <span style={{ color: 'lightgreen' }}> must contain atlest one lowercase letter</span><br></br>
-                        <span style={{ color: 'lightgreen' }}> must contain atlest one symbol</span><br></br>
-                        <span style={{ color: 'red' }}> must contain atlest one numeric letter</span><br></br>
-                        <span style={{ color: 'red' }}> must have 8 character</span>
+                        <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one uppercase letter</span><br></br>
+                        <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one lowercase letter</span><br></br>
+                        <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one symbol</span><br></br>
+                        <span style={{ color: 'red' }}> Passowrd must contain atlest one numeric letter</span><br></br>
+                        <span style={{ color: 'red' }}> Passowrd must have 8 character</span>
                     </div>
                 );
             }
             else if (/[A-Z]/.test(str) && /[a-z]/.test(str) && !/[-+_!@#$%^&*., ?]/.test(str) && /[0-9]/.test(str)) {
                 setError2(
                     <div>
-                        <span style={{ color: 'lightgreen' }}> must contain atlest one uppercase letter</span><br></br>
-                        <span style={{ color: 'lightgreen' }}> must contain atlest one lowercase letter</span><br></br>
-                        <span style={{ color: 'red' }}> must contain atlest one symbol</span><br></br>
-                        <span style={{ color: 'lightgreen' }}> must contain atlest one numeric letter</span><br></br>
-                        <span style={{ color: 'red' }}> must have 8 character</span>
+                        <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one uppercase letter</span><br></br>
+                        <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one lowercase letter</span><br></br>
+                        <span style={{ color: 'red' }}> Passowrd must contain atlest one symbol</span><br></br>
+                        <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one numeric letter</span><br></br>
+                        <span style={{ color: 'red' }}> Passowrd must have 8 character</span>
                     </div>
                 );
             }
             else if (/[A-Z]/.test(str) && !/[a-z]/.test(str) && /[-+_!@#$%^&*., ?]/.test(str) && /[0-9]/.test(str)) {
                 setError2(
                     <div>
-                        <span style={{ color: 'lightgreen' }}> must contain atlest one uppercase letter</span><br></br>
-                        <span style={{ color: 'red' }}> must contain atlest one lowercase letter</span><br></br>
-                        <span style={{ color: 'lightgreen' }}> must contain atlest one symbol</span><br></br>
-                        <span style={{ color: 'lightgreen' }}> must contain atlest one numeric letter</span><br></br>
-                        <span style={{ color: 'red' }}> must have 8 character</span>
+                        <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one uppercase letter</span><br></br>
+                        <span style={{ color: 'red' }}> Passowrd must contain atlest one lowercase letter</span><br></br>
+                        <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one symbol</span><br></br>
+                        <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one numeric letter</span><br></br>
+                        <span style={{ color: 'red' }}> Passowrd must have 8 character</span>
                     </div>
                 );
             }
             else if (!/[A-Z]/.test(str) && /[a-z]/.test(str) && !/[0-9]/.test(str) && !/[-+_!@#$%^&*., ?]/.test(str)) {
                 setError2(
                     <div>
-                        <span style={{ color: 'red' }}> must contain atlest one uppercase letter</span><br></br>
-                        <span style={{ color: 'lightgreen' }}> must contain atlest one lowercase letter</span><br></br>
-                        <span style={{ color: 'red' }}> must contain atlest one symbol</span><br></br>
-                        <span style={{ color: 'red' }}> must contain atlest one numeric letter</span><br></br>
-                        <span style={{ color: 'red' }}> must have 8 character</span>
+                        <span style={{ color: 'red' }}> Passowrd must contain atlest one uppercase letter</span><br></br>
+                        <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one lowercase letter</span><br></br>
+                        <span style={{ color: 'red' }}> Passowrd must contain atlest one symbol</span><br></br>
+                        <span style={{ color: 'red' }}> Passowrd must contain atlest one numeric letter</span><br></br>
+                        <span style={{ color: 'red' }}> Passowrd must have 8 character</span>
                     </div>
                 );
             }
@@ -187,55 +189,55 @@ const AddEmploy = () => {
             else if (!/[A-Z]/.test(str) && /[a-z]/.test(str) && /[0-9]/.test(str) && !/[-+_!@#$%^&*., ?]/.test(str)) {
                 setError2(
                     <div>
-                        <span style={{ color: 'red' }}> must contain atlest one uppercase letter</span><br></br>
-                        <span style={{ color: 'lightgreen' }}> must contain atlest one lowercase letter</span><br></br>
-                        <span style={{ color: 'lightgreen' }}> must contain atlest one symbol</span><br></br>
-                        <span style={{ color: 'red' }}> must contain atlest one numeric letter</span><br></br>
-                        <span style={{ color: 'red' }}> must have 8 character</span>
+                        <span style={{ color: 'red' }}> Passowrd must contain atlest one uppercase letter</span><br></br>
+                        <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one lowercase letter</span><br></br>
+                        <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one symbol</span><br></br>
+                        <span style={{ color: 'red' }}> Passowrd must contain atlest one numeric letter</span><br></br>
+                        <span style={{ color: 'red' }}> Passowrd must have 8 character</span>
                     </div>
                 );
             }
             else if (!/[A-Z]/.test(str) && /[a-z]/.test(str) && !/[0-9]/.test(str) && /[-+_!@#$%^&*., ?]/.test(str)) {
                 setError2(
                     <div>
-                        <span style={{ color: 'red' }}> must contain atlest one uppercase letter</span><br></br>
-                        <span style={{ color: 'lightgreen' }}> must contain atlest one lowercase letter</span><br></br>
-                        <span style={{ color: 'red' }}> must contain atlest one symbol</span><br></br>
-                        <span style={{ color: 'lightgreen' }}> must contain atlest one numeric letter</span><br></br>
-                        <span style={{ color: 'red' }}> must have 8 character</span>
+                        <span style={{ color: 'red' }}> Passowrd must contain atlest one uppercase letter</span><br></br>
+                        <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one lowercase letter</span><br></br>
+                        <span style={{ color: 'red' }}> Passowrd must contain atlest one symbol</span><br></br>
+                        <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one numeric letter</span><br></br>
+                        <span style={{ color: 'red' }}> Passowrd must have 8 character</span>
                     </div>
                 );
             }
             else if (!/[A-Z]/.test(str) && /[a-z]/.test(str) && /[0-9]/.test(str) && /[-+_!@#$%^&*., ?]/.test(str)) {
                 setError2(
                     <div>
-                        <span style={{ color: 'red' }}> must contain atlest one uppercase letter</span><br></br>
-                        <span style={{ color: 'lightgreen' }}> must contain atlest one lowercase letter</span><br></br>
-                        <span style={{ color: 'lightgreen' }}> must contain atlest one symbol</span><br></br>
-                        <span style={{ color: 'lightgreen' }}> must contain atlest one numeric letter</span><br></br>
-                        <span style={{ color: 'red' }}> must have 8 character</span>
+                        <span style={{ color: 'red' }}> Passowrd must contain atlest one uppercase letter</span><br></br>
+                        <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one lowercase letter</span><br></br>
+                        <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one symbol</span><br></br>
+                        <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one numeric letter</span><br></br>
+                        <span style={{ color: 'red' }}> Passowrd must have 8 character</span>
                     </div>
                 );
             }
             else if (!/[A-Z]/.test(str) && !/[a-z]/.test(str) && /[-+_!@#$%^&*., ?]/.test(str) && /[0-9]/.test(str)) {
                 setError2(
                     <div>
-                        <span style={{ color: 'red' }}> must contain atlest one uppercase letter</span><br></br>
-                        <span style={{ color: 'red' }}> must contain atlest one lowercase letter</span><br></br>
-                        <span style={{ color: 'lightgreen' }}> must contain atlest one symbol</span><br></br>
-                        <span style={{ color: 'lightgreen' }}> must contain atlest one numeric letter</span><br></br>
-                        <span style={{ color: 'red' }}> must have 8 character</span>
+                        <span style={{ color: 'red' }}> Passowrd must contain atlest one uppercase letter</span><br></br>
+                        <span style={{ color: 'red' }}> Passowrd must contain atlest one lowercase letter</span><br></br>
+                        <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one symbol</span><br></br>
+                        <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one numeric letter</span><br></br>
+                        <span style={{ color: 'red' }}> Passowrd must have 8 character</span>
                     </div>
                 );
             }
                 else if (/[A-Z]/.test(str) && /[a-z]/.test(str) && /[-+_!@#$%^&*., ?]/.test(str) && /[0-9]/.test(str)) {
                     setError2(
                         <div>
-                            <span style={{ color: 'lightgreen' }}> must contain atlest one uppercase letter</span><br></br>
-                            <span style={{ color: 'lightgreen' }}> must contain atlest one lowercase letter</span><br></br>
-                            <span style={{ color: 'lightgreen' }}> must contain atlest one symbol</span><br></br>
-                            <span style={{ color: 'lightgreen' }}> must contain atlest one numeric letter</span><br></br>
-                            <span style={{ color: 'red' }}> must have 8 character</span>
+                            <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one uppercase letter</span><br></br>
+                            <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one lowercase letter</span><br></br>
+                            <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one symbol</span><br></br>
+                            <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one numeric letter</span><br></br>
+                            <span style={{ color: 'red' }}> Passowrd must have 8 character</span>
                         </div>
                     );
                 } 
@@ -245,77 +247,77 @@ const AddEmploy = () => {
                     if (/[A-Z]/.test(str) && !/[a-z]/.test(str) && !/[-+_!@#$%^&*., ?]/.test(str) && !/[0-9]/.test(str)) {
                         setError2(
                             <div>
-                                <span style={{ color: 'lightgreen' }}> must contain atlest one uppercase letter</span><br></br>
-                                <span style={{ color: 'red' }}> must contain atlest one lowercase letter</span><br></br>
-                                <span style={{ color: 'red' }}> must contain atlest one symbol</span><br></br>
-                                <span style={{ color: 'red' }}> must contain atlest one numeric letter</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must have 8 character</span>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one uppercase letter</span><br></br>
+                                <span style={{ color: 'red' }}> Passowrd must contain atlest one lowercase letter</span><br></br>
+                                <span style={{ color: 'red' }}> Passowrd must contain atlest one symbol</span><br></br>
+                                <span style={{ color: 'red' }}> Passowrd must contain atlest one numeric letter</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must have 8 character</span>
                             </div>
                         );
                     }
                     else if (!/[A-Z]/.test(str) && /[a-z]/.test(str) && !/[0-9]/.test(str) && !/[-+_!@#$%^&*., ?]/.test(str)) {
                         setError2(
                             <div>
-                                <span style={{ color: 'red' }}> must contain atlest one uppercase letter</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must contain atlest one lowercase letter</span><br></br>
-                                <span style={{ color: 'red' }}> must contain atlest one symbol</span><br></br>
-                                <span style={{ color: 'red' }}> must contain atlest one numeric letter</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must have 8 character</span>
+                                <span style={{ color: 'red' }}> Passowrd must contain atlest one uppercase letter</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one lowercase letter</span><br></br>
+                                <span style={{ color: 'red' }}> Passowrd must contain atlest one symbol</span><br></br>
+                                <span style={{ color: 'red' }}> Passowrd must contain atlest one numeric letter</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must have 8 character</span>
                             </div>
                         );
                     }
                     else if (!/[A-Z]/.test(str) && !/[a-z]/.test(str) && /[-+_!@#$%^&*., ?]/.test(str) && !/[0-9]/.test(str)) {
                         setError2(
                             <div>
-                                <span style={{ color: 'red' }}> must contain atlest one uppercase letter</span><br></br>
-                                <span style={{ color: 'red' }}> must contain atlest one lowercase letter</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must contain atlest one symbol</span><br></br>
-                                <span style={{ color: 'red' }}> must contain atlest one numeric letter</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must have 8 character</span>
+                                <span style={{ color: 'red' }}> Passowrd must contain atlest one uppercase letter</span><br></br>
+                                <span style={{ color: 'red' }}> Passowrd must contain atlest one lowercase letter</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one symbol</span><br></br>
+                                <span style={{ color: 'red' }}> Passowrd must contain atlest one numeric letter</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must have 8 character</span>
                             </div>
                         );
                     }
                     else if (!/[A-Z]/.test(str) && !/[a-z]/.test(str) && !/[-+_!@#$%^&*., ?]/.test(str) && /[0-9]/.test(str)) {
                         setError2(
                             <div>
-                                <span style={{ color: 'red' }}> must contain atlest one uppercase letter</span><br></br>
-                                <span style={{ color: 'red' }}> must contain atlest one lowercase letter</span><br></br>
-                                <span style={{ color: 'red' }}> must contain atlest one symbol</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must contain atlest one numeric letter</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must have 8 character</span>
+                                <span style={{ color: 'red' }}> Passowrd must contain atlest one uppercase letter</span><br></br>
+                                <span style={{ color: 'red' }}> Passowrd must contain atlest one lowercase letter</span><br></br>
+                                <span style={{ color: 'red' }}> Passowrd must contain atlest one symbol</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one numeric letter</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must have 8 character</span>
                             </div>
                         );
                     }
                     else if (/[A-Z]/.test(str) && /[a-z]/.test(str) && !/[-+_!@#$%^&*., ?]/.test(str) && !/[0-9]/.test(str)) {
                         setError2(
                             <div>
-                                <span style={{ color: 'lightgreen' }}> must contain atlest one uppercase letter</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must contain atlest one lowercase letter</span><br></br>
-                                <span style={{ color: 'red' }}> must contain atlest one symbol</span><br></br>
-                                <span style={{ color: 'red' }}> must contain atlest one numeric letter</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must have 8 character</span>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one uppercase letter</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one lowercase letter</span><br></br>
+                                <span style={{ color: 'red' }}> Passowrd must contain atlest one symbol</span><br></br>
+                                <span style={{ color: 'red' }}> Passowrd must contain atlest one numeric letter</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must have 8 character</span>
                             </div>
                         );
                     }
                     else if (/[A-Z]/.test(str) && !/[a-z]/.test(str) && /[-+_!@#$%^&*., ?]/.test(str) && !/[0-9]/.test(str)) {
                         setError2(
                             <div>
-                                <span style={{ color: 'lightgreen' }}> must contain atlest one uppercase letter</span><br></br>
-                                <span style={{ color: 'red' }}> must contain atlest one lowercase letter</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must contain atlest one symbol</span><br></br>
-                                <span style={{ color: 'red' }}> must contain atlest one numeric letter</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must have 8 character</span>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one uppercase letter</span><br></br>
+                                <span style={{ color: 'red' }}> Passowrd must contain atlest one lowercase letter</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one symbol</span><br></br>
+                                <span style={{ color: 'red' }}> Passowrd must contain atlest one numeric letter</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must have 8 character</span>
                             </div>
                         );
                     }
                     else if (/[A-Z]/.test(str) && !/[a-z]/.test(str) && !/[-+_!@#$%^&*., ?]/.test(str) && /[0-9]/.test(str)) {
                         setError2(
                             <div>
-                                <span style={{ color: 'lightgreen' }}> must contain atlest one uppercase letter</span><br></br>
-                                <span style={{ color: 'red' }}> must contain atlest one lowercase letter</span><br></br>
-                                <span style={{ color: 'red' }}> must contain atlest one symbol</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must contain atlest one numeric letter</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must have 8 character</span>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one uppercase letter</span><br></br>
+                                <span style={{ color: 'red' }}> Passowrd must contain atlest one lowercase letter</span><br></br>
+                                <span style={{ color: 'red' }}> Passowrd must contain atlest one symbol</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one numeric letter</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must have 8 character</span>
                             </div>
                         );
                     }
@@ -323,44 +325,44 @@ const AddEmploy = () => {
                     else if (/[A-Z]/.test(str) && /[a-z]/.test(str) && /[-+_!@#$%^&*., ?]/.test(str) && !/[0-9]/.test(str)) {
                         setError2(
                             <div>
-                                <span style={{ color: 'lightgreen' }}> must contain atlest one uppercase letter</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must contain atlest one lowercase letter</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must contain atlest one symbol</span><br></br>
-                                <span style={{ color: 'red' }}> must contain atlest one numeric letter</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must have 8 character</span>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one uppercase letter</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one lowercase letter</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one symbol</span><br></br>
+                                <span style={{ color: 'red' }}> Passowrd must contain atlest one numeric letter</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must have 8 character</span>
                             </div>
                         );
                     }
                     else if (/[A-Z]/.test(str) && /[a-z]/.test(str) && !/[-+_!@#$%^&*., ?]/.test(str) && /[0-9]/.test(str)) {
                         setError2(
                             <div>
-                                <span style={{ color: 'lightgreen' }}> must contain atlest one uppercase letter</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must contain atlest one lowercase letter</span><br></br>
-                                <span style={{ color: 'red' }}> must contain atlest one symbol</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must contain atlest one numeric letter</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must have 8 character</span>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one uppercase letter</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one lowercase letter</span><br></br>
+                                <span style={{ color: 'red' }}> Passowrd must contain atlest one symbol</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one numeric letter</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must have 8 character</span>
                             </div>
                         );
                     }
                     else if (/[A-Z]/.test(str) && !/[a-z]/.test(str) && /[-+_!@#$%^&*., ?]/.test(str) && /[0-9]/.test(str)) {
                         setError2(
                             <div>
-                                <span style={{ color: 'lightgreen' }}> must contain atlest one uppercase letter</span><br></br>
-                                <span style={{ color: 'red' }}> must contain atlest one lowercase letter</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must contain atlest one symbol</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must contain atlest one numeric letter</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must have 8 character</span>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one uppercase letter</span><br></br>
+                                <span style={{ color: 'red' }}> Passowrd must contain atlest one lowercase letter</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one symbol</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one numeric letter</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must have 8 character</span>
                             </div>
                         );
                     }
                     else if (!/[A-Z]/.test(str) && /[a-z]/.test(str) && !/[0-9]/.test(str) && !/[-+_!@#$%^&*., ?]/.test(str)) {
                         setError2(
                             <div>
-                                <span style={{ color: 'red' }}> must contain atlest one uppercase letter</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must contain atlest one lowercase letter</span><br></br>
-                                <span style={{ color: 'red' }}> must contain atlest one symbol</span><br></br>
-                                <span style={{ color: 'red' }}> must contain atlest one numeric letter</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must have 8 character</span>
+                                <span style={{ color: 'red' }}> Passowrd must contain atlest one uppercase letter</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one lowercase letter</span><br></br>
+                                <span style={{ color: 'red' }}> Passowrd must contain atlest one symbol</span><br></br>
+                                <span style={{ color: 'red' }}> Passowrd must contain atlest one numeric letter</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must have 8 character</span>
                             </div>
                         );
                     }
@@ -368,79 +370,66 @@ const AddEmploy = () => {
                     else if (!/[A-Z]/.test(str) && /[a-z]/.test(str) && /[0-9]/.test(str) && !/[-+_!@#$%^&*., ?]/.test(str)) {
                         setError2(
                             <div>
-                                <span style={{ color: 'red' }}> must contain atlest one uppercase letter</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must contain atlest one lowercase letter</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must contain atlest one symbol</span><br></br>
-                                <span style={{ color: 'red' }}> must contain atlest one numeric letter</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must have 8 character</span>
+                                <span style={{ color: 'red' }}> Passowrd must contain atlest one uppercase letter</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one lowercase letter</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one symbol</span><br></br>
+                                <span style={{ color: 'red' }}> Passowrd must contain atlest one numeric letter</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must have 8 character</span>
                             </div>
                         );
                     }
                     else if (!/[A-Z]/.test(str) && /[a-z]/.test(str) && !/[0-9]/.test(str) && /[-+_!@#$%^&*., ?]/.test(str)) {
                         setError2(
                             <div>
-                                <span style={{ color: 'red' }}> must contain atlest one uppercase letter</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must contain atlest one lowercase letter</span><br></br>
-                                <span style={{ color: 'red' }}> must contain atlest one symbol</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must contain atlest one numeric letter</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must have 8 character</span>
+                                <span style={{ color: 'red' }}> Passowrd must contain atlest one uppercase letter</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one lowercase letter</span><br></br>
+                                <span style={{ color: 'red' }}> Passowrd must contain atlest one symbol</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one numeric letter</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must have 8 character</span>
                             </div>
                         );
                     }
                     else if (!/[A-Z]/.test(str) && /[a-z]/.test(str) && /[0-9]/.test(str) && /[-+_!@#$%^&*., ?]/.test(str)) {
                         setError2(
                             <div>
-                                <span style={{ color: 'red' }}> must contain atlest one uppercase letter</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must contain atlest one lowercase letter</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must contain atlest one symbol</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must contain atlest one numeric letter</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must have 8 character</span>
+                                <span style={{ color: 'red' }}> Passowrd must contain atlest one uppercase letter</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one lowercase letter</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one symbol</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one numeric letter</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must have 8 character</span>
                             </div>
                         );
                     }
                     else if (!/[A-Z]/.test(str) && !/[a-z]/.test(str) && /[-+_!@#$%^&*., ?]/.test(str) && /[0-9]/.test(str)) {
                         setError2(
                             <div>
-                                <span style={{ color: 'red' }}> must contain atlest one uppercase letter</span><br></br>
-                                <span style={{ color: 'red' }}> must contain atlest one lowercase letter</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must contain atlest one symbol</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must contain atlest one numeric letter</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must have 8 character</span>
+                                <span style={{ color: 'red' }}> Passowrd must contain atlest one uppercase letter</span><br></br>
+                                <span style={{ color: 'red' }}> Passowrd must contain atlest one lowercase letter</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one symbol</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one numeric letter</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must have 8 character</span>
                             </div>
                         );
                     }
                     else if (/[A-Z]/.test(str) && /[a-z]/.test(str) && /[-+_!@#$%^&*., ?]/.test(str) && /[0-9]/.test(str)) {
                         setError2(
                             <div>
-                                <span style={{ color: 'lightgreen' }}> must contain atlest one uppercase letter</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must contain atlest one lowercase letter</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must contain atlest one symbol</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must contain atlest one numeric letter</span><br></br>
-                                <span style={{ color: 'lightgreen' }}> must have 8 character</span>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one uppercase letter</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one lowercase letter</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one symbol</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must contain atlest one numeric letter</span><br></br>
+                                <span style={{ color: 'lightgreen' }}> Passowrd must have 8 character</span>
                             </div>
                         );
                     }
                 }
             
-            }             
-            // else {
-            //     setError2(
-            //         <div>
-            //             <span style={{ color: 'red' }}> must contain atlest one uppercase letter</span><br></br>
-            //             <span style={{ color: 'red' }}> must contain atlest one symbol</span><br></br>
-            //             <span style={{ color: 'red' }}> must contain atlest one lowercase letter</span>
-            //             <span style={{ color: 'red' }}> must contain atlest one numeric letter</span>
-            //         </div>
-            //     );
-            // }
-        
-    
+            }                 
         else{
             setError2(null);
         }
 
         const { name, value } = e.target;
-        // console.log(name, value, values);
         setValues({ ...values, [name]: value });
 
     };

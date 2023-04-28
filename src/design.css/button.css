@@ -5,6 +5,7 @@
     border: none;
     border-radius: 4px;
     margin-right: 10px;
+    position: relative;
 }
 .deleted{
       background-color: #d87c7c;

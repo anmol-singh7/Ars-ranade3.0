@@ -103,15 +103,16 @@ const Table = (props) => {
         <div className="modal-container" onClick={() => setIsModalOpen(false)}>
           <div className={`modal-content ${isDeleting ? 'deleting' : ''}`} onClick={(e) => e.stopPropagation()}>
             <h2>Are you sure you want to delete this user?</h2>
-            <div style={{ display: "flex", justifyContent: "space-around" }}>
+            <p  style={{marginTop:'5vh'}}className="delete-msg">This action cannot be undone.</p>
+            <p style={{ marginTop: '5vh' }} className="deleting-msg">Deleting...</p>
+            <div style={{ display: "flex", justifyContent: "space-around",marginTop:'5vh'}}>
               <button style={{ backgroundColor: "blue" }} onClick={() => setIsModalOpen(false)}>Cancel</button>
               <button className='delete' onClick={() => {
                 setIsDeleting(true);
                 handleDeactivate(selectedRow, props.tableHollow.deleteendpoint, props.tableHollow.displayFields[0]);
               }} disabled={isDeleting}>{isDeleting ? 'Deleting...' : 'Delete'}</button>
             </div>
-            <p className="delete-msg">This action cannot be undone.</p>
-            <p className="deleting-msg">Deleting...</p>
+           
           </div>
         </div>
       )}

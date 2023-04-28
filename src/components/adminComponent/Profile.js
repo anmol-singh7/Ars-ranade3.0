@@ -32,7 +32,7 @@ const ProfileDropdown = () => {
                     Change Password/Security
                 </div>
                 <div className="dropdown-item">
-                    Setting
+                    Settings
                 </div>
                 <div className="dropdown-item">
                     Help

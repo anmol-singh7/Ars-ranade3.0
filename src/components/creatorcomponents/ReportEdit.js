@@ -746,7 +746,7 @@ function ViewBoard() {
         </table>
         <div style={{ display: "flex" }}>
           <button className="add-button" onClick={() => modifyJsonArray(allheading, heading)}>Add Row</button>
-          <button className="add-button" onClick={() => setTable(prevheadingjson, data, list)}>Reset</button>
+          <button className="add-button" onClick={() => setTable(prevheadingjson, data, list)}>Show</button>
           <ButtonWithModal Data={list} markedData={prevheadingjson} style={{ zIndex: "10" }} addheading={addheading} />
           {/* <button className="add-button" onClick={()=>setOptionsMin(body,atList,heading,allheading)}>Min</button>
           <button className="add-button" onClick={() => setOptionsMax(body, atList, heading, allheading)}>Max</button>

@@ -68,10 +68,10 @@ function Creator() {
         <h1>Creator Profile</h1>
           <ul>
             <li className={selected === 'user-creation' ? 'active' : ''}>
-              <div onClick={() => handleClick('user-creation')}>FormCreate</div>
+              <div onClick={() => handleClick('user-creation')}>Create Report</div>
             </li>
             <li className={selected === 'client-db-create' ? 'active' : ''}>
-              <div onClick={() => handleClick('client-db-create')}>FormList</div>
+              <div onClick={() => handleClick('client-db-create')}>Report List</div>
             </li>
           </ul>
         </div>
