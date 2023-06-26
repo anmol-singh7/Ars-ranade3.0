@@ -16,6 +16,7 @@ import Default from './components/Default';
 import DashBoardPage from './components/adminComponent/DashBoardPage';
 import AddEmploy from './components/adminComponent/input';
 import ViewBoard2 from './components/creatorcomponents/ReportView';
+// import ProfilePage from './6';
 
 const App = () => {
   return (
@@ -35,6 +36,7 @@ const App = () => {
           <Route path="/testpage2" element={<Modal2 />} />
           <Route path="/Createfinalreport" element={<ViewBoard />} />
           <Route path="/addemploy" element={<AddEmploy/>}/>
+          {/* <Route path ="/pp" element ={<ProfilePage/>}/> */}
         </Routes>
       </BrowserRouter>
     </div>

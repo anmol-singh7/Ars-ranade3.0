@@ -3,29 +3,37 @@ import '../design.css/LoginPage.css'
 import { useState } from 'react'
 import { users } from '../stubdata/users'
 import { useNavigate } from 'react-router-dom';
+import { fetchPostApi } from '../api/singlecall';
 
 
 const LoginPage = () => {
 
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [bgc,setbgc] = useState("white");
   const navigate = useNavigate();
+  const URL = process.env.REACT_APP_URL;
+  const API = URL + "/login";
+  
 
-  const clickHanler = (a, b) => {
-
-    const user = users.find((user) => user.username === a && user.password === b);
-    if (!user) {
-      alert('Incorrect Username or Password')
-      return
+  const clickHandler = async(a, b,API) => {
+    const cred ={email:a,password:b};
+    const res = await fetchPostApi(API,cred);
+    if(!res.userid){
+        setbgc("red");
     }
-    else if (user.role === "Admin")
-      navigate("/dashboard");
-    else if (user.role === "Checker")
-      navigate("/checker");
-    else if (user.role === "Approver")
-      navigate("/approver");
-    else if (user.role === "Creator")
-      navigate("/creator");
+    if (res.userid===-1) {
+      alert('Incorrect Username or Password')
+      return;
+    }
+    else if (res.usertype === "admin")
+      navigate("/dashboard",{state:res});
+    else if (res.usertype === "checker")
+      navigate("/checker", { state: res });
+    else if (res.usertype === "approver")
+      navigate("/approver", { state: res });
+    else if (res.usertype === "creator")
+      navigate("/creator", { state: res });
 
 
   }
@@ -37,7 +45,7 @@ const LoginPage = () => {
     setPassword(e.target.value)
   }
   return (
-    <div className='login-div'>
+    <div className='login-div' style={{backgroundColor: bgc}}>
       <div className='login-div2'>
         <h1 className="login-h1">Login</h1>
         <h3 className="login-h3">Username</h3>
@@ -55,7 +63,7 @@ const LoginPage = () => {
         />
         <br />
         <br />
-        <button className="login-button" onClick={() => clickHanler(userName, password)}>Enter</button>
+        <button className="login-button" onClick={() => clickHandler(userName, password,API)}>Enter</button>
       </div>
     </div>
   )

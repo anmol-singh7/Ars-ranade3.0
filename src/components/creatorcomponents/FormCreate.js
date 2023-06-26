@@ -2,19 +2,21 @@ import React, { useEffect, useState } from "react";
 import { Form} from 'semantic-ui-react';
 import { useNavigate } from "react-router-dom";
 import {fetchGetApi, fetchPostApi } from "../../api/singlecall";
+import { useLocation } from "react-router-dom";
 import "../../design.css/FormCreate.css";
 
-function FormCreate() {
+function FormCreate({creatorID,usertype}) {
   const URL=process.env.REACT_APP_URL;
   const API1 = URL+"client/databases";
   const API2 = URL+"systems";
   const API3 = URL+"manufacturers";
   const API4 = URL+"tables";
-  const API5 = URL+"uniqueformtypes";
-  const API6 = URL+"description";
+  const API5 = "https://automatic-reporting-system.onrender.com/api/" +"uniqueformtypes";
+  const API6 = "https://automatic-reporting-system.onrender.com/api/"+"description";
   const navigate = useNavigate();
   const [showComponentOne, setShowComponentOne] = useState(true);
   const [showComponentTwo, setShowComponentTwo] = useState(false);
+  const [Rname,setRname] = useState("")
   
 
   const [clientList, setClientList] = useState([]);
@@ -27,7 +29,7 @@ function FormCreate() {
   const [max_date,setmax_date]=useState("");
 
   const [formValues, setFormValues] = useState({
-    userid: "ABS-896645467/Creator",
+    creatorid: creatorID,
     clientid: "",
     formtype: "",
     systems: "",
@@ -43,8 +45,8 @@ function FormCreate() {
     version:'',
     reportid:null,
     utilityid:null,
-    prechandler:'',
-    nexthandler:'',
+    checkerid:0,
+    approverid:0,
     count:1,
     reportname:"",
 
@@ -124,16 +126,16 @@ function getClientIdByDatabaseName(jsonArray, databasename) {
 <form className="formcreate-" onSubmit={(e)=>handleSubmit(e)}>
   <Form.Field>
  <div className="formcreate-div2">
-  <label className="formcreate-label2" htmlFor="userid">User ID</label>
+  <label className="formcreate-label2" htmlFor="creatorid">Creator ID</label>
   <div class="error-message">*This field is mandatory</div>
   <input
    className="formcreate-select"
     type="text"
-    id="userid"
-    name="userid"
-    value={formValues.userid}
+    id="creatorid"
+    name="creatorid"
+    value={formValues.creatorid}
     onChange={handleChange}
-    placeholder={formValues.userid}
+    placeholder={formValues.creatorid}
     disabled
   />
   
@@ -194,21 +196,18 @@ function getClientIdByDatabaseName(jsonArray, databasename) {
   </select>
   </div>  
   
- <div className="formcreate-div2">
+ {/* <div className="formcreate-div2">
   <label className="formcreate-label-2" htmlFor="reportname">Report Name:</label>
-  {/* <div class="error-message">*This field is mandatory</div> */}
   <input
    className="formcreate-input"
-    type="text"
+    // type="text"
     id="reportname"
     name="reportname"
-    // placeholder="Enter the Report Name"
     value={formValues.reportname}
     onChange={handleChange}
    
   />
-  
-  </div>
+  </div> */}
  
     <div className="formcreate-div2">
   <label className="formcreate-label-2" htmlFor="manufacturer">Manufacturer</label>
@@ -329,6 +328,7 @@ function getClientIdByDatabaseName(jsonArray, databasename) {
     setShowComponentTwo(true);
   
     const dat = await fetchPostApi(API4, { databasename:event });
+    console.log("rrrrrrrrrrrrrr",dat);
     setTable1(dat);
    };
 
@@ -350,7 +350,7 @@ function getClientIdByDatabaseName(jsonArray, databasename) {
 
       const body={databasename:selectedDB, tablename: event.target.value};
       const formslist= await fetchPostApi(API5,body);
-      setFormList(formslist);
+      setFormList(formslist.formtypes);
       setmin_date(formslist.mindate.substring(0,10));
       setmax_date(formslist.maxdate.substring(0,10));
       console.log(formslist.mindate.substring(0,10),formslist.maxdate.substring(0,10))
@@ -376,6 +376,7 @@ function getClientIdByDatabaseName(jsonArray, databasename) {
   };
 
   const sendData = async ()=>{
+    console.log("tttttttttttttttttt",formList);
     setFormValues({
       ...formValues,
       databasename: selectedDB,
@@ -383,11 +384,12 @@ function getClientIdByDatabaseName(jsonArray, databasename) {
       prechandler:'Creator',
       nexthandler:'Creator',
       version:'0',
-      formtype:formList[0],
+      formtype:(formList.length===0?'F1'+selectedDB:formList[0]),
     
     });
     console.log(formValues,"before send");
-   
+    console.log("tttttttttttttttttt", formList);
+
   };
 
   return (

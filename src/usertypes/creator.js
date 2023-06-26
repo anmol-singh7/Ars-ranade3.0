@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink,useLocation } from 'react-router-dom';
 
 import './cssmain/creator.css'
 import './cssmain/admin.css'
@@ -13,6 +13,7 @@ function Creator() {
     const [selected, setSelected] = useState('client-master');
     const [isSidebarVisible, setIsSidebarVisible] = useState(false);
     const [isDragging, setIsDragging] = useState(false);
+    const {state}=useLocation();
   
     function handleDragStart(e) {
       setIsDragging(true);
@@ -37,9 +38,9 @@ function Creator() {
     const renderComponent = () => {
       switch(selected) {
         case 'user-creation':
-          return <FormCreate />;
+          return <FormCreate creatorID={state.userid} usertype={state.usertype}/>;
         case 'client-db-create':
-          return <FormList />;
+          return <FormList creatorID={state.userid} usertype={state.usertype} />;
           case 'logout':
             return (
               <NavLink to="./login">

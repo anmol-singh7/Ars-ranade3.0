@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { tableTypeMap } from '../people/tabletypes';
 import { useLocation } from "react-router-dom";
@@ -17,7 +17,7 @@ const DashBoardPage = () => {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const { state } = useLocation();
-    const toggleDropdown = () => {
+  const toggleDropdown = () => {
       setDropdownVisible(!dropdownVisible);
     };
 

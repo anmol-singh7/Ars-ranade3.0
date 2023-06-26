@@ -20,7 +20,7 @@ function ViewBoard() {
   const API9 = URL + "attributes";
   const API10 = URL + "addfilter";
   const API15 = URL + "getfilter";
-  const [description, setdec] = useState({ clientid: "", systems: "", manufacturer: "", datebegin: "", timebegin: "", dateend: "", timeend: "", databasename: "", table1: "", formtype: "", status1: "", prechandler: "", nexthandler: "", count: "", reportname: "" });
+  const [description, setdec] = useState({ clientid: "", systems: "", manufacturer: "", datebegin: "", timebegin: "", dateend: "", timeend: "", databasename: "", table1: "", formtype: "", status1: "", checkerid:0,approverid:0, count: "", reportname: "" });
   const [clientname, setclientname] = useState("");
   const [data, FillSetPointData] = useState([[]]);
   const { state } = useLocation();

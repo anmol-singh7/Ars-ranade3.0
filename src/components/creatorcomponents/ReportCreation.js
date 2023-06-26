@@ -15,7 +15,7 @@ function ViewBoard(props) {
     const API2 = URL + "description/reportid";
     const API4 = URL + "systems";
     const API5 = URL + "manufacturers";
-    const API8 = URL + "sensors";
+    const API8 = "https://automatic-reporting-system.onrender.com/api/" + "sensors";
     const API9 = URL + "attributes";
     const API10 = URL + "normalpoints";
     const API11 = URL + "setpoints";
@@ -23,7 +23,7 @@ function ViewBoard(props) {
     const API13 = URL + "updateDescription";
     const API14 = URL + "addfilter";
 
-    const [description, setdec] = useState({ clientid: "", systems: "", manufacturer: "", datebegin: "", timebegin: "", dateend: "", timeend: "", databasename: "", table1: "", formtype: "", status1: "", prechandler: "", nexthandler: "", count: "", reportname: "" });
+    const [description, setdec] = useState({ clientid: "", systems: "", manufacturer: "", datebegin: "", timebegin: "", dateend: "", timeend: "", databasename: "", table1: "", formtype: "", status1: "", checkerid:0,approverid:0, count: "", reportname: "" });
     const [clientname, setclientname] = useState("");
     const [data, FillSetPointData] = useState([[]]);
     const { state } = useLocation();
@@ -218,9 +218,9 @@ function ViewBoard(props) {
             reportname: formValues.reportname,
 
         };
-        console.log("secondfffffffffffffff", temp, formValues);
+        console.log("secondfffffffffffffff",formValues);
         setFormValues(temp);
-        setFormValues(temp);
+        // setFormValues(temp);
         const trial = Object.entries(response3.attributelist);
         delete trial.CurDT;
         delete trial.CurT;
@@ -854,10 +854,10 @@ function ViewBoard(props) {
                     <button className="add-button" onClick={() => setTable(prevheadingjson, data, list)}>Reset</button>
                     {/* <button className="add-button" onClick={() => setTable(prevheadingjson, data, list)}>Reset</button> */}
                     <ButtonWithModal Data={list} markedData={prevheadingjson} style={{ zIndex: "3" }} addheading={addheading} />
-                    {/* <button className="add-button" onClick={()=>setOptionsMin(body,atList,heading,allheading)}>Min</button>
+                    <button className="add-button" onClick={()=>setOptionsMin(body,atList,heading,allheading)}>Min</button>
           <button className="add-button" onClick={() => setOptionsMax(body, atList, heading, allheading)}>Max</button>
-          */}
-                    <div className={`wrapper ${isActive ? 'active' : ''}`}>
+         
+                    {/* <div className={`wrapper ${isActive ? 'active' : ''}`}>
                         <button className="btn" onClick={toggleOptions}>
                             <i className={`ri ${isActive ? 'ri-close-line' : 'ri-share-line'}`}></i>
                         </button>
@@ -878,7 +878,7 @@ function ViewBoard(props) {
                                 </a>
                             </li>
                         </ul>
-                    </div>
+                    </div> */}
                 </div>-
                 <table className="finalformcreate-table "
                     htmlFor="#table3"

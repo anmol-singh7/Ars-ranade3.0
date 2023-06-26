@@ -1,9 +1,9 @@
 import React, {useState ,useEffect } from "react";
 import "../../design.css/FormList.css";
 import {useNavigate } from "react-router-dom";
-import { fetchGetApi } from "../../api/singlecall";
+import { fetchGetApi,fetchPostApi } from "../../api/singlecall";
 
-function Creator() {
+function Creator({creatorID,usertype}) {
   const [reportTypeSearchTerm, setReportTypeSearchTerm] = useState("");
   const [dateSearchTerm, setDateSearchTerm] = useState("");
   const [statusSearchTerm, setStatusSearchTerm] = useState("");
@@ -11,6 +11,7 @@ function Creator() {
   const navigate=useNavigate();
   const URL=process.env.REACT_APP_URL;
   const API10 = URL+'reports';
+  const API11 =URL +"allreports";
   const [reportData,setReportData] =useState ([]);
 
   const handleReportTypeSearchTermChange = (event) => {
@@ -28,17 +29,28 @@ function Creator() {
     setReportSearchTerm(event.target.value);
   };
   const fetch = async (API) => {
-    
+    // console.log("tttttt",creaID)
     const result = await fetchGetApi (API);
-    console.log("result",result);
+    console.log("result11111111",result);
     setReportData(result);
  
   };
-  
+  const fetch2 = async (API, creaID) => {
+    console.log("tttttt", creaID)
+    const result = await fetchPostApi(API, { creatorid: creaID });
+    console.log("result11111111", result);
+    setReportData(result);
+
+  };
     useEffect(() => {
-      fetch(API10);
+      if(usertype==="creator"){
+         fetch2(API10,creatorID);
+      }
+      else{
+        fetch(API11);
+      }
     
-    }, []);
+    }, [creatorID,usertype]);
 
   const filteredData = reportData.filter((report) => {
     const reportTypeFieldValue = report.reportname;
@@ -56,11 +68,12 @@ function Creator() {
     );
   });
 
-const setid =(event)=>{
+const setid =(event,cre,type)=>{
   event.preventDefault();
   const alfa=event.target.value;
+  const res = {alfa:alfa,userid:cre,usertype:type}
   
-  navigate('/creator/view', { state: { alfa} });
+  navigate('/creator/view', { state: res });
 };
 const setid2 =(event)=>{
   event.preventDefault();
@@ -126,7 +139,7 @@ const setid2 =(event)=>{
                       onChange={handleDateSearchTermChange}
                     />
                   </th>
-                  <th className="formlist-th">
+                  {usertype==="creator"?<th className="formlist-th">
                     <label
                       className="formlist-label"
                       htmlFor="statusSearchTerm"
@@ -139,7 +152,7 @@ const setid2 =(event)=>{
                       value={statusSearchTerm}
                       onChange={handleStatusSearchTermChange}
                     />
-                  </th>
+                  </th>:<></>}
                   <th className="formlist-th"></th>
                 </tr>
 
@@ -147,25 +160,25 @@ const setid2 =(event)=>{
                   <th className="formlist-th">Report ID</th>
                   <th className="formlist-th">Report Type</th>
                   <th className="formlist-th">Date</th>
-                  <th className="formlist-th">Status</th>
-                  <th className="formlist-th">View Edit</th>
+                  {usertype==="creator"?<th className="formlist-th">Status</th>:<></>}
+                  <th className="formlist-th">View {usertype==="creator"?"Edit":""}</th>
                   
                 </tr>
               </thead>
               <tbody className="formlist-tbody">
                 {filteredData.map((report) => (
-                  <tr className="formlist-tr" key={report.reportid}>
+               <> { usertype==="creator" || (usertype==="checker"&&report.status1==="Creeated") ||(usertype==="approver"&&report.status1==="Checked")  ?<tr className="formlist-tr" key={report.reportid}>
                     <td className="formlist-td">{report.reportid}</td>
                     <td className="formlist-td">{report.reportname}</td>
                     <td className="formlist-td">{report.datebegin}</td>
-                    <td className="formlist-td">{report.status1}</td>
+                    {usertype === "creator" ?<td className="formlist-td">{report.status1}</td>:<></>}
                     <td className="formlist-td">
-                      <button value={report.reportid} onClick={(e) => setid(e)}>View</button>
-                    
-                  
-                      <button value={report.reportid} onClick={(e) => setid2(e)}>Edit</button>
+                      <button value={report.reportid} onClick={(e) => setid(e,creatorID,usertype)}>View</button>
+                      {usertype==="creator" ? <button value={report.reportid} onClick={(e) => setid2(e)}>Edit</button> :<></>}
                     </td>
                   </tr>
+                   :<></>
+                }</>
                 ))}
               </tbody>
             </table>

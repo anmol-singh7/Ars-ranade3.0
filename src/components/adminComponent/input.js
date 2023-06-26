@@ -7,7 +7,6 @@ import "../../design.css/user.css";
 
 const AddEmploy = () => {
     const URL = process.env.REACT_APP_URL;
-
     const [values, setValues] = useState(inputdata["user"].fields);
     const { state } = useLocation();
     const navigate = useNavigate();
@@ -512,7 +511,7 @@ const AddEmploy = () => {
     return (
         <div className="usercreation-div">
             <label>
-                <h1 className="usercreation-h1">{`Create New ${state}`}</h1>
+                <h1 className="usercreation-h1">{`Create New ${state[0].toUpperCase()}${state.slice(1).toLowerCase()}`}</h1>
             </label>
             <div className="formcenter">
                 <form className="usercreation-form" onSubmit={(e) => handleSubmit(e, inputdata[state].endpoint, values)}>
@@ -552,7 +551,7 @@ const AddEmploy = () => {
                         </button>
 
                         <button className="usercreation-button" >
-                            enter
+                           { `Add ${state[0].toUpperCase()}${state.slice(1).toLowerCase()}`}
                         </button>
                         {/* <button type="button" onClick={(()=>console.log(values))}> </button> */}
                     </div>

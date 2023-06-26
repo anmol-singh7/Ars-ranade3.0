@@ -42,11 +42,11 @@ const response = await fetch(API, requestOptions)
     throw new Error(`HTTP error! Status: ${response.status}`);
   }
  const result = await response.json();
-//  console.log(result);
+ console.log(result);
  return result;
   }
   catch (error) {
-  throw error;
+  // console.log(error);
 }
   
 }

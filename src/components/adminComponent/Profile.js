@@ -21,20 +21,18 @@ const ProfileDropdown = () => {
                 className="profile-image"
                 onClick={toggleDropdown}
             />
-            <div className={`dropdown ${dropdownVisible ? 'show' : ''}`}>
-                <div className="dropdown-item">
-                    Employ Id    
+            <div className={`dropdown1 ${dropdownVisible ? 'show' : ''}`}>
+             
+                <div className="dropdown-item1">
+                    Profile
                 </div>
-                <div className="dropdown-item">
-                    Department
-                </div>
-                <div className="dropdown-item">
+                <div className="dropdown-item1">
                     Change Password/Security
                 </div>
-                <div className="dropdown-item">
+                <div className="dropdown-item1">
                     Settings
                 </div>
-                <div className="dropdown-item">
+                <div className="dropdown-item1">
                     Help
                 </div>
                 <div className="dropdown-item2" onClick={() => handleLogout()}>Logout</div>
